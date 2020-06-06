@@ -1,4 +1,4 @@
-package com.bcopstein.entidades.geometria;
+package com.verival.tf.entidades.geometria;
 
 public class Area {
     private Ponto pSupEsq, pInfDir;
@@ -20,10 +20,10 @@ public class Area {
         return pInfDir;
     }
 
-    public Ponto pontoCentral(){
-        int x = getPSupEsq().getX()+Math.abs(getPInfDir().getX() - getPSupEsq().getX());
-        int y = getPSupEsq().getY()+Math.abs(getPInfDir().getY() - getPSupEsq().getY());
-        return new Ponto(x,y);
+    public Ponto pontoCentral() {
+        int x = getPSupEsq().getX() + Math.abs(getPInfDir().getX() - getPSupEsq().getX());
+        int y = getPSupEsq().getY() + Math.abs(getPInfDir().getY() - getPSupEsq().getY());
+        return new Ponto(x, y);
     }
 
     public byte codificaPonto(Ponto p) {

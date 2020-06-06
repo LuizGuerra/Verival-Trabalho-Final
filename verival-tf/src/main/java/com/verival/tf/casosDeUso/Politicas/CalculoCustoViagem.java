@@ -1,15 +1,22 @@
-package com.bcopstein.casosDeUso.Politicas;
+package com.verival.tf.casosDeUso.Politicas;
 
-import com.bcopstein.entidades.Passageiro;
-import com.bcopstein.entidades.Roteiro;
+import com.verival.tf.entidades.Passageiro;
+import com.verival.tf.entidades.Roteiro;
 
 public interface CalculoCustoViagem {
     void defineRoteiro(Roteiro roteiro);
+
     void definePassageiro(Passageiro passageiro);
-	public Roteiro getRoteiro();
-	public Passageiro getPassageiro();
+
+    public Roteiro getRoteiro();
+
+    public Passageiro getPassageiro();
+
     double calculoCustoBasico();
+
     double descontoPontuacao();
+
     double descontoPromocaoSazonal();
+
     double custoViagem();
 }

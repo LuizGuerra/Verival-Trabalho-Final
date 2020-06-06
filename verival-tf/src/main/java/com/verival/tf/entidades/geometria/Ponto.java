@@ -1,19 +1,19 @@
-package com.bcopstein.entidades.geometria;
+package com.verival.tf.entidades.geometria;
 
 public class Ponto {
     private int x;
     private int y;
 
-    public Ponto(int x,int y){
+    public Ponto(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    public int getX(){
+    public int getX() {
         return x;
     }
 
-    public int getY(){
+    public int getY() {
         return y;
     }
 

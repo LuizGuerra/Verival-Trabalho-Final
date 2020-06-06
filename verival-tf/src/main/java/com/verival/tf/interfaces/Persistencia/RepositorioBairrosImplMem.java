@@ -1,13 +1,13 @@
-package com.bcopstein.interfaces.Persistencia;
+package com.verival.tf.interfaces.Persistencia;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.bcopstein.casosDeUso.Repositorios.RepositorioBairros;
-import com.bcopstein.entidades.Bairro;
-import com.bcopstein.entidades.geometria.Ponto;
+import com.verival.tf.casosDeUso.Repositorios.RepositorioBairros;
+import com.verival.tf.entidades.Bairro;
+import com.verival.tf.entidades.geometria.Ponto;
 
 public class RepositorioBairrosImplMem implements RepositorioBairros {
     private Map<String, Bairro> bairros;

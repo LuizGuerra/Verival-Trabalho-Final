@@ -1,7 +1,7 @@
-package com.bcopstein.casosDeUso.Politicas;
+package com.verival.tf.casosDeUso.Politicas;
 
-import com.bcopstein.entidades.Passageiro;
-import com.bcopstein.entidades.Roteiro;
+import com.verival.tf.entidades.Passageiro;
+import com.verival.tf.entidades.Roteiro;
 
 public class CalculoCustoViagemBasico implements CalculoCustoViagem {
     private Roteiro roteiro;
@@ -13,24 +13,21 @@ public class CalculoCustoViagemBasico implements CalculoCustoViagem {
     }
 
     @Override
-    public void definePassageiro(Passageiro passageiro){
+    public void definePassageiro(Passageiro passageiro) {
         this.passageiro = passageiro;
     }
 
-	public Roteiro getRoteiro() {
-		return roteiro;
-	}
+    public Roteiro getRoteiro() {
+        return roteiro;
+    }
 
-	public Passageiro getPassageiro() {
-		return passageiro;
-	}
-    
+    public Passageiro getPassageiro() {
+        return passageiro;
+    }
+
     @Override
     public double calculoCustoBasico() {
-        return roteiro.bairrosPercoridos()
-               .stream()
-               .mapToDouble(b->b.getCustoTransporte())
-               .sum();
+        return roteiro.bairrosPercoridos().stream().mapToDouble(b -> b.getCustoTransporte()).sum();
     }
 
     @Override
@@ -45,8 +42,6 @@ public class CalculoCustoViagemBasico implements CalculoCustoViagem {
 
     @Override
     public double custoViagem() {
-        return calculoCustoBasico() - 
-                descontoPontuacao() -
-                descontoPromocaoSazonal();
+        return calculoCustoBasico() - descontoPontuacao() - descontoPromocaoSazonal();
     }
 }

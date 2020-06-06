@@ -1,15 +1,15 @@
-package com.bcopstein.entidades;
+package com.verival.tf.entidades;
 
 import java.time.LocalDateTime;
 
-public class Viagem{
+public class Viagem {
     private int id;
     private LocalDateTime dataHora;
     private Roteiro roteiro;
     private Passageiro passageiro;
     private double valorCobrado;
 
-    public Viagem(int id, LocalDateTime dataHora, Roteiro roteiro, Passageiro passageiro,double valorCobrado){
+    public Viagem(int id, LocalDateTime dataHora, Roteiro roteiro, Passageiro passageiro, double valorCobrado) {
         this.id = id;
         this.dataHora = dataHora;
         this.roteiro = roteiro;
@@ -21,7 +21,7 @@ public class Viagem{
         return id;
     }
 
-    public LocalDateTime getDataHora() { 
+    public LocalDateTime getDataHora() {
         return dataHora;
     }
 
@@ -39,7 +39,7 @@ public class Viagem{
 
     @Override
     public String toString() {
-        return "Viagem [valor cobrado=" + valorCobrado + ", dataHora=" + dataHora + ", id=" + id + 
-                ", passageiro=" + passageiro + ", roteiro=" + roteiro + "]";
+        return "Viagem [valor cobrado=" + valorCobrado + ", dataHora=" + dataHora + ", id=" + id + ", passageiro="
+                + passageiro + ", roteiro=" + roteiro + "]";
     }
 }

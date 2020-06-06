@@ -1,17 +1,17 @@
-package com.bcopstein.entidades;
+package com.verival.tf.entidades;
 
-public class Passageiro{
+public class Passageiro {
 	private String cpf;
 	private String nome;
 	private int pontuacaoAcumulada;
 	private int qtdadeAvaliacoes;
 
-	public static Passageiro novoPassageiro(String cpf, String nome){
-		return new Passageiro(cpf,nome,8,1);
+	public static Passageiro novoPassageiro(String cpf, String nome) {
+		return new Passageiro(cpf, nome, 8, 1);
 	}
 
-	public static Passageiro passageiroExistente(String cpf, String nome, int pontuacaoAcumulada, int qtdadeAvaliacoes){
-		return new Passageiro(cpf,nome,pontuacaoAcumulada,qtdadeAvaliacoes);
+	public static Passageiro passageiroExistente(String cpf, String nome, int pontuacaoAcumulada, int qtdadeAvaliacoes) {
+		return new Passageiro(cpf, nome, pontuacaoAcumulada, qtdadeAvaliacoes);
 	}
 
 	private Passageiro(String cpf, String nome, int pontuacaoAcumulada, int qtdadeAvaliacoes) {

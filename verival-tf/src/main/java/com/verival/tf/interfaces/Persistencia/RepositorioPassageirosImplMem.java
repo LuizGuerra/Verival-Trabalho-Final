@@ -1,12 +1,12 @@
-package com.bcopstein.interfaces.Persistencia;
+package com.verival.tf.interfaces.Persistencia;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.bcopstein.casosDeUso.Repositorios.RepositorioPassageiros;
-import com.bcopstein.entidades.Passageiro;
+import com.verival.tf.casosDeUso.Repositorios.RepositorioPassageiros;
+import com.verival.tf.entidades.Passageiro;
 
 public class RepositorioPassageirosImplMem implements RepositorioPassageiros {
     private Map<String, Passageiro> passageiros;
