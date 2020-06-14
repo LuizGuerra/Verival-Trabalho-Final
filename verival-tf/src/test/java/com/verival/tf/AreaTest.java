@@ -4,6 +4,8 @@ import static org.junit.Assert.assertTrue;
 
 import com.verival.tf.entidades.geometria.Area;
 import com.verival.tf.entidades.geometria.Ponto;
+import com.verival.tf.entidades.geometria.Reta;
+import com.verival.tf.entidades.geometria.SituacaoReta;
 
 import org.junit.Test;
 
@@ -50,4 +52,204 @@ public class AreaTest {
 
     assertTrue(expected.getX() == actual.getX() && expected.getY() == actual.getY());
   }
+
+  /**
+   * codica ponto
+      0	Dentro do rect		
+      1	Acima e dentro do rect			
+      2	Abaixo e dentro do rect	
+      3	IMPOSSÍVEL		
+      4	Dir e dentro do rect	
+      5	Dir e acima do rect	
+      6	Dir e abaixo do rect	
+      7	IMPOSSÍVEL		
+      8	Esq e dentro do rect	
+      9	Esq e acima do rect	
+      10 Esq e abaixo do rect
+   */
+
+   @Test
+   public void pointInsideAreaTest() {
+    pSupEsq = new Ponto(-2, 2);
+    pInfDir = new Ponto(2, -2);
+    area = new Area(pSupEsq, pInfDir);
+    Ponto ponto = new Ponto(0,0);
+
+    byte expected = (byte) 0;
+    byte actual = area.codificaPonto(ponto);
+
+    assertTrue(expected == actual);
+   }
+
+   @Test
+   public void pointInsideThePerimeterTest() {
+    pSupEsq = new Ponto(-2, 2);
+    pInfDir = new Ponto(2, -2);
+    area = new Area(pSupEsq, pInfDir);
+    Ponto ponto = new Ponto(0,-2);
+
+    byte expected = (byte) 0;
+    byte actual = area.codificaPonto(ponto);
+
+    assertTrue(expected == actual);
+   }
+
+   @Test
+   public void pointAboveAreaTest() {
+    pSupEsq = new Ponto(-2, 2);
+    pInfDir = new Ponto(2, -2);
+    area = new Area(pSupEsq, pInfDir);
+    Ponto ponto = new Ponto(0,3);
+
+    byte expected = (byte) 1;
+    byte actual = area.codificaPonto(ponto);
+
+    assertTrue(expected == actual);
+   }
+
+   @Test
+   public void pointBellowAreaTest() {
+    pSupEsq = new Ponto(-2, 2);
+    pInfDir = new Ponto(2, -2);
+    area = new Area(pSupEsq, pInfDir);
+    Ponto ponto = new Ponto(0,-3);
+
+    byte expected = (byte) 2;
+    byte actual = area.codificaPonto(ponto);
+
+    assertTrue(expected == actual);
+   }
+
+   @Test
+   public void pointRightAreaTest() {
+    pSupEsq = new Ponto(-2, 2);
+    pInfDir = new Ponto(2, -2);
+    area = new Area(pSupEsq, pInfDir);
+    Ponto ponto = new Ponto(3,0);
+
+    byte expected = (byte) 4;
+    byte actual = area.codificaPonto(ponto);
+
+    assertTrue(expected == actual);
+   }
+
+   @Test
+   public void pointRightAndAboveAreaTest() {
+    pSupEsq = new Ponto(-2, 2);
+    pInfDir = new Ponto(2, -2);
+    area = new Area(pSupEsq, pInfDir);
+    Ponto ponto = new Ponto(5,5);
+
+    byte expected = (byte) 5;
+    byte actual = area.codificaPonto(ponto);
+
+    assertTrue(expected == actual);
+   }
+
+   @Test
+   public void pointRightAndBelowAreaTest() {
+    pSupEsq = new Ponto(-2, 2);
+    pInfDir = new Ponto(2, -2);
+    area = new Area(pSupEsq, pInfDir);
+    Ponto ponto = new Ponto(5,-4);
+
+    byte expected = (byte) 6;
+    byte actual = area.codificaPonto(ponto);
+
+    assertTrue(expected == actual);
+   }
+
+   @Test
+   public void pointLeftAreaTest() {
+    pSupEsq = new Ponto(-2, 2);
+    pInfDir = new Ponto(2, -2);
+    area = new Area(pSupEsq, pInfDir);
+    Ponto ponto = new Ponto(-4,0);
+
+    byte expected = (byte) 8;
+    byte actual = area.codificaPonto(ponto);
+
+    assertTrue(expected == actual);
+   }
+
+   @Test
+   public void pointLeftAndAboveAreaTest() {
+    pSupEsq = new Ponto(-2, 2);
+    pInfDir = new Ponto(2, -2);
+    area = new Area(pSupEsq, pInfDir);
+    Ponto ponto = new Ponto(-4,4);
+
+    byte expected = (byte) 9;
+    byte actual = area.codificaPonto(ponto);
+
+    assertTrue(expected == actual);
+   }
+
+   @Test
+   public void pointLeftAndBelowAreaTest() {
+    pSupEsq = new Ponto(-2, 2);
+    pInfDir = new Ponto(2, -2);
+    area = new Area(pSupEsq, pInfDir);
+    Ponto ponto = new Ponto(-4,-4);
+
+    byte expected = (byte) 10;
+    byte actual = area.codificaPonto(ponto);
+
+    assertTrue(expected == actual);
+   }
+
+   // Testa posição da reta relativa ao retangulo
+
+   @Test
+   public void lineIsInsideOfRectangleTest() {
+    pSupEsq = new Ponto(-2, 2);
+    pInfDir = new Ponto(2, -2);
+    area = new Area(pSupEsq, pInfDir);
+    Reta reta = new Reta((new Ponto(0,-1)), (new Ponto(1,0)));
+
+    SituacaoReta expected = SituacaoReta.TODA_DENTRO;
+    SituacaoReta actual = area.classifica(reta);
+
+    assertTrue(expected == actual);
+   }
+
+   @Test
+   public void lineIsInsideOfRectangleTouchingPerimeterTest() {
+    pSupEsq = new Ponto(-2, 2);
+    pInfDir = new Ponto(2, -2);
+    area = new Area(pSupEsq, pInfDir);
+    Reta reta = new Reta((new Ponto(-2,2)), (new Ponto(2,2)));
+
+    SituacaoReta expected = SituacaoReta.TODA_DENTRO;
+    SituacaoReta actual = area.classifica(reta);
+
+    assertTrue(expected == actual);
+   }
+
+   @Test
+   public void lineIntersectsRectangleTest() {
+    pSupEsq = new Ponto(-2, 2);
+    pInfDir = new Ponto(2, -2);
+    area = new Area(pSupEsq, pInfDir);
+    Reta reta = new Reta((new Ponto(-3,0)), (new Ponto(0,3)));
+
+    SituacaoReta expected = SituacaoReta.INTERSECTA;
+    SituacaoReta actual = area.classifica(reta);
+
+    assertTrue(expected == actual);
+   }
+
+   @Test
+   public void lineIsTotallyOutOfRectangleTest() {
+    pSupEsq = new Ponto(-2, 2);
+    pInfDir = new Ponto(2, -2);
+    area = new Area(pSupEsq, pInfDir);
+    Reta reta = new Reta((new Ponto(-5,0)), (new Ponto(0,5)));
+
+    SituacaoReta expected = SituacaoReta.TODA_FORA;
+    SituacaoReta actual = area.classifica(reta);
+
+    assertTrue(expected == actual);
+   }
+
 }

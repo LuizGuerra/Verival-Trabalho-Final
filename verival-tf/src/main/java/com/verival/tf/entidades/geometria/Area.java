@@ -21,8 +21,8 @@ public class Area {
     }
 
     public Ponto pontoCentral() {
-        int x = (getPInfDir().getX() + getPSupEsq().getX()) / 2;
-        int y = (getPInfDir().getY() + getPSupEsq().getY()) / 2;
+        int x = getPSupEsq().getX() + Math.abs(getPInfDir().getX() - getPSupEsq().getX());
+        int y = getPSupEsq().getY() + Math.abs(getPInfDir().getY() - getPSupEsq().getY());
         return new Ponto(x, y);
     }
 
