@@ -55,10 +55,20 @@ public class AreaTest {
   }
 
   /**
-   * codica ponto 0 Dentro do rect 1 Acima e dentro do rect 2 Abaixo e dentro do
-   * rect 3 IMPOSSÍVEL 4 Dir e dentro do rect 5 Dir e acima do rect 6 Dir e abaixo
-   * do rect 7 IMPOSSÍVEL 8 Esq e dentro do rect 9 Esq e acima do rect 10 Esq e
-   * abaixo do rect
+   * Teste do método 'codificaPonto'
+   * Guia para entender os bits de resposta:
+   * 
+   * 0 Dentro do rect
+   * 1 Acima e dentro do rect
+   * 2 Abaixo e dentro do rect
+   * 3 IMPOSSÍVEL
+   * 4 Dir e dentro do rect
+   * 5 Dir e acima do rect
+   * 6 Dir e abaixo do rect 
+   * 7 IMPOSSÍVEL
+   * 8 Esq e dentro do rect
+   * 9 Esq e acima do rect
+   * 10 Esq e abaixo do rect
    */
 
   @Test
