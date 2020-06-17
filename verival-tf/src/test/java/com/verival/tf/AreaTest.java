@@ -201,12 +201,17 @@ public class AreaTest {
     assertTrue(expected == actual);
   }
 
+  /**
+   * Teste da função 'classifica', que verifica estado da reta relativo a área 
+   */
+
+   // Teste dentro dá área
   @Test
-  public void lineIsInsideOfRectangleTest() {
+  public void lineInsideAreaTest() {
     pSupEsq = new Ponto(-2, 2);
     pInfDir = new Ponto(2, -2);
     area = new Area(pSupEsq, pInfDir);
-    Reta reta = new Reta((new Ponto(0, -1)), (new Ponto(1, 0)));
+    Reta reta = new Reta((new Ponto(-2,-2)), (new Ponto(2,2)));
 
     SituacaoReta expected = SituacaoReta.TODA_DENTRO;
     SituacaoReta actual = area.classifica(reta);
