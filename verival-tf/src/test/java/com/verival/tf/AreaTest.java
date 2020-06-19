@@ -68,10 +68,20 @@ public class AreaTest {
   }
 
   /**
-   * codica ponto 0 Dentro do rect 1 Acima e dentro do rect 2 Abaixo e dentro do
-   * rect 3 IMPOSSÍVEL 4 Dir e dentro do rect 5 Dir e acima do rect 6 Dir e abaixo
-   * do rect 7 IMPOSSÍVEL 8 Esq e dentro do rect 9 Esq e acima do rect 10 Esq e
-   * abaixo do rect
+   * Teste do método 'codificaPonto'
+   * Guia para entender os bits de resposta:
+   * 
+   * 0 Dentro do rect
+   * 1 Acima e dentro do rect
+   * 2 Abaixo e dentro do rect
+   * 3 IMPOSSÍVEL
+   * 4 Dir e dentro do rect
+   * 5 Dir e acima do rect
+   * 6 Dir e abaixo do rect 
+   * 7 IMPOSSÍVEL
+   * 8 Esq e dentro do rect
+   * 9 Esq e acima do rect
+   * 10 Esq e abaixo do rect
    */
 
   @Test
@@ -204,12 +214,17 @@ public class AreaTest {
     Assertions.assertTrue(expected == actual);
   }
 
+  /**
+   * Teste da função 'classifica', que verifica estado da reta relativo a área 
+   */
+
+   // Teste dentro dá área
   @Test
-  public void lineIsInsideOfRectangleTest() {
+  public void lineInsideAreaTest() {
     pSupEsq = new Ponto(-2, 2);
     pInfDir = new Ponto(2, -2);
     area = new Area(pSupEsq, pInfDir);
-    Reta reta = new Reta((new Ponto(0, -1)), (new Ponto(1, 0)));
+    Reta reta = new Reta((new Ponto(-2,-2)), (new Ponto(2,2)));
 
     SituacaoReta expected = SituacaoReta.TODA_DENTRO;
     SituacaoReta actual = area.classifica(reta);
@@ -217,43 +232,99 @@ public class AreaTest {
     Assertions.assertEquals(expected, actual);
   }
 
+  // Testa intersecção
   @Test
-  public void lineIsInsideOfRectangleTouchingPerimeterTest() {
+  public void lineWithOnePointInsideAreaTest() {
     pSupEsq = new Ponto(-2, 2);
     pInfDir = new Ponto(2, -2);
     area = new Area(pSupEsq, pInfDir);
-    Reta reta = new Reta((new Ponto(-2, 2)), (new Ponto(2, 2)));
-
-    SituacaoReta expected = SituacaoReta.TODA_DENTRO;
-    SituacaoReta actual = area.classifica(reta);
-
-    Assertions.assertTrue(expected == actual);
-  }
-
-  @Test
-  public void lineIntersectsRectangleTest() {
-    pSupEsq = new Ponto(-2, 2);
-    pInfDir = new Ponto(2, -2);
-    area = new Area(pSupEsq, pInfDir);
-    Reta reta = new Reta((new Ponto(-3, 0)), (new Ponto(0, 3)));
+    Reta reta = new Reta((new Ponto(0,1)), (new Ponto(3,-1)));
 
     SituacaoReta expected = SituacaoReta.INTERSECTA;
     SituacaoReta actual = area.classifica(reta);
 
-    Assertions.assertTrue(expected == actual);
+    assertEquals(expected, actual);
   }
 
   @Test
-  public void lineIsTotallyOutOfRectangleTest() {
+  public void lineWithBothPointsOutOfAreaTest() {
     pSupEsq = new Ponto(-2, 2);
     pInfDir = new Ponto(2, -2);
     area = new Area(pSupEsq, pInfDir);
-    Reta reta = new Reta((new Ponto(-5, 0)), (new Ponto(-4, 1)));
+    Reta reta = new Reta((new Ponto(-3,-1)), (new Ponto(3,-1)));
+
+    SituacaoReta expected = SituacaoReta.INTERSECTA;
+    SituacaoReta actual = area.classifica(reta);
+
+    assertEquals(expected, actual);
+  }
+
+  // Testa reta toda fora da área
+  @Test
+  public void horizontalLineOutOfAreaTest() {
+    pSupEsq = new Ponto(-2, 2);
+    pInfDir = new Ponto(2, -2);
+    area = new Area(pSupEsq, pInfDir);
+    Reta reta = new Reta((new Ponto(0,-4)), (new Ponto(4,-4)));
+
+    SituacaoReta expected = SituacaoReta.TODA_DENTRO;
+    SituacaoReta actual = area.classifica(reta);
+
+    assertEquals(expected, actual);
+  }
+
+  @Test
+  public void verticalLineOutOfAreaTest() {
+    pSupEsq = new Ponto(-2, 2);
+    pInfDir = new Ponto(2, -2);
+    area = new Area(pSupEsq, pInfDir);
+    Reta reta = new Reta((new Ponto(-5,0)), (new Ponto(-5,-5)));
 
     SituacaoReta expected = SituacaoReta.TODA_FORA;
     SituacaoReta actual = area.classifica(reta);
 
-    Assertions.assertTrue(expected == actual);
+    assertEquals(expected, actual);
+  }
+
+  @Test
+  public void diagonalLineOutOfAreaTest() {
+    pSupEsq = new Ponto(-2, 2);
+    pInfDir = new Ponto(2, -2);
+    area = new Area(pSupEsq, pInfDir);
+    Reta reta = new Reta((new Ponto(-5,5)), (new Ponto(-3,3)));
+
+    SituacaoReta expected = SituacaoReta.TODA_FORA;
+    SituacaoReta actual = area.classifica(reta);
+
+    assertEquals(expected, actual);
+  }
+
+  @Test
+  public void sameQuadrantWithLineOutOfAreaTest() {
+    pSupEsq = new Ponto(-2, 2);
+    pInfDir = new Ponto(2, -2);
+    area = new Area(pSupEsq, pInfDir);
+    Reta reta = new Reta((new Ponto(5,1)), (new Ponto(5,-1)));
+
+    SituacaoReta expected = SituacaoReta.TODA_FORA;
+    SituacaoReta actual = area.classifica(reta);
+
+    assertEquals(expected, actual);
+  }
+
+  @Test
+  public void lineIsTotallyOutOfRectangleTest() {
+  public void differentQuadranstWithLineOutOfAreaTest() {
+    pSupEsq = new Ponto(-2, 2);
+    pInfDir = new Ponto(2, -2);
+    area = new Area(pSupEsq, pInfDir);
+    Reta reta = new Reta((new Ponto(-5, 0)), (new Ponto(-4, 1)));
+    Reta reta = new Reta((new Ponto(0,10)), (new Ponto(10,0)));
+
+    SituacaoReta expected = SituacaoReta.TODA_FORA;
+    SituacaoReta actual = area.classifica(reta);
+
+    assertEquals(expected, actual);
   }
 
 }
