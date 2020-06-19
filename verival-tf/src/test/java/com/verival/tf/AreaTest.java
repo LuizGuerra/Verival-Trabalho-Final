@@ -40,6 +40,21 @@ public class AreaTest {
   }
 
   @Test
+  public void createAreaWithLeftPointGreaterThanRightPointTest() {
+    pSupEsq = new Ponto(-2, -6);
+    pInfDir = new Ponto(-10, -2);
+
+    Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+      new Area(pSupEsq, pInfDir);
+    });
+
+    final String expectedMessage = "O retangulo deve ser definido pela diagonal principal";
+    final String actualMessage = exception.getMessage();
+
+    Assertions.assertTrue(actualMessage.contains(expectedMessage));
+  }
+
+  @Test
   public void getCentralPointWithNegativeAndPositiveNumbersTest() {
     pSupEsq = new Ponto(-5, 5);
     pInfDir = new Ponto(3, -3);

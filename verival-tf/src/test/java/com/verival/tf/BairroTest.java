@@ -33,6 +33,20 @@ public class BairroTest {
   }
 
   @Test
+  public void updateTransportCostWithLessThanZeroTest() {
+    bairro = new Bairro("Azenha", area, 5.50);
+
+    Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+      bairro.alteraCustoTransporte(0);
+    });
+
+    final String expectedMessage = "Valor invalido";
+    final String actualMessage = exception.getMessage();
+
+    Assertions.assertTrue(actualMessage.contains(expectedMessage));
+  }
+
+  @Test
   public void getNameTest() {
     bairro = new Bairro("Menino Deus", area, 5.50);
     final String expected = "Menino Deus";
