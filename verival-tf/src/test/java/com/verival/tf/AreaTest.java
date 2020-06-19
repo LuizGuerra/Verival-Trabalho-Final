@@ -1,14 +1,12 @@
 package com.verival.tf;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
 import com.verival.tf.entidades.geometria.Area;
 import com.verival.tf.entidades.geometria.Ponto;
 import com.verival.tf.entidades.geometria.Reta;
 import com.verival.tf.entidades.geometria.SituacaoReta;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
 
 public class AreaTest {
   private Ponto pSupEsq;
@@ -25,7 +23,7 @@ public class AreaTest {
     Ponto expected = new Ponto(3, 3);
     Ponto actual = area.pontoCentral();
 
-    assertTrue(expected.getX() == actual.getX() && expected.getY() == actual.getY());
+    Assertions.assertTrue(expected.getX() == actual.getX() && expected.getY() == actual.getY());
   }
 
   @Test
@@ -38,7 +36,7 @@ public class AreaTest {
     Ponto expected = new Ponto(-6, -4);
     Ponto actual = area.pontoCentral();
 
-    assertTrue(expected.getX() == actual.getX() && expected.getY() == actual.getY());
+    Assertions.assertTrue(expected.getX() == actual.getX() && expected.getY() == actual.getY());
   }
 
   @Test
@@ -51,7 +49,7 @@ public class AreaTest {
     Ponto expected = new Ponto(-1, 1);
     Ponto actual = area.pontoCentral();
 
-    assertTrue(expected.getX() == actual.getX() && expected.getY() == actual.getY());
+    Assertions.assertTrue(expected.getX() == actual.getX() && expected.getY() == actual.getY());
   }
 
   /**
@@ -71,7 +69,7 @@ public class AreaTest {
     byte expected = (byte) 0;
     byte actual = area.codificaPonto(ponto);
 
-    assertTrue(expected == actual);
+    Assertions.assertTrue(expected == actual);
   }
 
   @Test
@@ -84,7 +82,7 @@ public class AreaTest {
     byte expected = (byte) 0;
     byte actual = area.codificaPonto(ponto);
 
-    assertTrue(expected == actual);
+    Assertions.assertTrue(expected == actual);
   }
 
   @Test
@@ -97,7 +95,7 @@ public class AreaTest {
     byte expected = (byte) 1;
     byte actual = area.codificaPonto(ponto);
 
-    assertTrue(expected == actual);
+    Assertions.assertTrue(expected == actual);
   }
 
   @Test
@@ -110,7 +108,7 @@ public class AreaTest {
     byte expected = (byte) 2;
     byte actual = area.codificaPonto(ponto);
 
-    assertTrue(expected == actual);
+    Assertions.assertTrue(expected == actual);
   }
 
   @Test
@@ -123,7 +121,7 @@ public class AreaTest {
     byte expected = (byte) 4;
     byte actual = area.codificaPonto(ponto);
 
-    assertTrue(expected == actual);
+    Assertions.assertTrue(expected == actual);
   }
 
   @Test
@@ -136,7 +134,7 @@ public class AreaTest {
     byte expected = (byte) 5;
     byte actual = area.codificaPonto(ponto);
 
-    assertTrue(expected == actual);
+    Assertions.assertTrue(expected == actual);
   }
 
   @Test
@@ -149,7 +147,7 @@ public class AreaTest {
     byte expected = (byte) 6;
     byte actual = area.codificaPonto(ponto);
 
-    assertTrue(expected == actual);
+    Assertions.assertTrue(expected == actual);
   }
 
   @Test
@@ -162,7 +160,7 @@ public class AreaTest {
     byte expected = (byte) 8;
     byte actual = area.codificaPonto(ponto);
 
-    assertTrue(expected == actual);
+    Assertions.assertTrue(expected == actual);
   }
 
   @Test
@@ -175,7 +173,7 @@ public class AreaTest {
     byte expected = (byte) 9;
     byte actual = area.codificaPonto(ponto);
 
-    assertTrue(expected == actual);
+    Assertions.assertTrue(expected == actual);
   }
 
   @Test
@@ -188,7 +186,7 @@ public class AreaTest {
     byte expected = (byte) 10;
     byte actual = area.codificaPonto(ponto);
 
-    assertTrue(expected == actual);
+    Assertions.assertTrue(expected == actual);
   }
 
   @Test
@@ -201,7 +199,7 @@ public class AreaTest {
     SituacaoReta expected = SituacaoReta.TODA_DENTRO;
     SituacaoReta actual = area.classifica(reta);
 
-    assertEquals(expected, actual);
+    Assertions.assertEquals(expected, actual);
   }
 
   @Test
@@ -214,7 +212,7 @@ public class AreaTest {
     SituacaoReta expected = SituacaoReta.TODA_DENTRO;
     SituacaoReta actual = area.classifica(reta);
 
-    assertTrue(expected == actual);
+    Assertions.assertTrue(expected == actual);
   }
 
   @Test
@@ -227,7 +225,7 @@ public class AreaTest {
     SituacaoReta expected = SituacaoReta.INTERSECTA;
     SituacaoReta actual = area.classifica(reta);
 
-    assertTrue(expected == actual);
+    Assertions.assertTrue(expected == actual);
   }
 
   @Test
@@ -240,7 +238,7 @@ public class AreaTest {
     SituacaoReta expected = SituacaoReta.TODA_FORA;
     SituacaoReta actual = area.classifica(reta);
 
-    assertTrue(expected == actual);
+    Assertions.assertTrue(expected == actual);
   }
 
 }
