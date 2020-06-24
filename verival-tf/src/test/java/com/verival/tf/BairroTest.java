@@ -84,4 +84,5 @@ public class BairroTest {
 
     Assertions.assertTrue((pInfDir.getX() == 0) && (pInfDir.getY() == -3));
   }
+
 }

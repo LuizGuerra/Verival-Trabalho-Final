@@ -14,7 +14,7 @@ public class RepositorioBairrosImplMem implements RepositorioBairros {
 
     public RepositorioBairrosImplMem() {
         bairros = new HashMap<>();
-
+        
         bairros.put("Petropolis", Bairro.novoBairroQuadrado("Petropolis", new Ponto(0, 12), 4, 10));
         bairros.put("Ipiranga", Bairro.novoBairroRetangular("Ipiranga", new Ponto(4, 10), 4, 2, 6));
         bairros.put("Solidao", Bairro.novoBairroRetangular("Solidao", new Ponto(0, 8), 2, 4, 5));
