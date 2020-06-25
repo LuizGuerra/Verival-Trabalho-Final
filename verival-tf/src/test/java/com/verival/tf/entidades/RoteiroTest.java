@@ -14,9 +14,11 @@ import java.util.List;
 import com.sun.javafx.geom.Area;
 import com.verival.tf.entidades.geometria.Ponto;
 import com.verival.tf.entidades.geometria.Reta;
+import com.verival.tf.entidades.geometria.SituacaoReta;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.stubbing.Answer;
 import org.junit.jupiter.api.Assertions;
 
 public class RoteiroTest {
@@ -75,6 +77,15 @@ public class RoteiroTest {
     public void lineThatRunsThroughTwoDistrictsTest() {
         roteiro = new Roteiro(districts.get(0), districts.get(1), districts);
         final Reta expected = new Reta((new Ponto(1, 5)), (new Ponto(4,5)));
+
+        when(districts.get(0).getArea().classifica(expected)).thenReturn(SituacaoReta.INTERSECTA);
+        when(districts.get(1).getArea().classifica(expected)).thenReturn(SituacaoReta.INTERSECTA);
+        when(districts.get(2).getArea().classifica(expected)).thenReturn(SituacaoReta.TODA_FORA);
+        when(districts.get(3).getArea().classifica(expected)).thenReturn(SituacaoReta.TODA_FORA);
+        when(districts.get(4).getArea().classifica(expected)).thenReturn(SituacaoReta.TODA_FORA);
+        when(districts.get(5).getArea().classifica(expected)).thenReturn(SituacaoReta.TODA_FORA);
+        
+
         final Reta actual = roteiro.getRota();
         final Boolean equalLines = pointsAreEqual(expected.getP1(), actual.getP1()) && pointsAreEqual(expected.getP2(), actual.getP2());
 
