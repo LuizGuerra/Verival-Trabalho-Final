@@ -21,18 +21,34 @@ public class Roteiro {
         }
     }
 
-    public Roteiro(Bairro bairroOrigem, Bairro bairroDestino, Collection<Bairro> todosBairros) throws IllegalArgumentException {
-        if (!todosBairros.contains(bairroOrigem) ||
-         !todosBairros.contains(bairroDestino) ||
-          bairroOrigem == null || bairroDestino == null || todosBairros.isEmpty()) {
-            throw new IllegalArgumentException("Impossible to calculate route with a district outside off the map.");
+    public Roteiro(Bairro bairroOrigem, Bairro bairroDestino, Collection<Bairro> todosBairros) throws IllegalArgumentException, NullPointerException {
+        if (bairroOrigem == null) {
+            throw new NullPointerException("Origin district cannot be null on initializer");
         }
+        if (bairroDestino == null) {
+            throw new NullPointerException("Destination district cannot be null on initializer");
+        }
+        if (todosBairros == null) {
+            throw new NullPointerException("City map cannot be null on initializer");
+        }
+        if ( todosBairros.isEmpty()) {
+            throw new IllegalArgumentException("City map cannot be empty on initializer");
+        }
+        if (!todosBairros.contains(bairroOrigem)) {
+            throw new IllegalArgumentException("City map doesn't contain origin district");
+        }
+        if (!todosBairros.contains(bairroDestino)) {
+            throw new IllegalArgumentException("City map doesn't contain destination district");
+        }
+
         this.bairroOrigem = bairroOrigem;
         this.bairroDestino = bairroDestino;
         this.bairrosPercorridos = todosBairros;
+
         Ponto pOrig = bairroOrigem.getArea().pontoCentral();
         Ponto pDest = bairroOrigem.getArea().pontoCentral();
         rota = new Reta(pOrig, pDest);
+
         determinaBairrosPercorridos(rota, todosBairros);
     }
 
