@@ -24,11 +24,12 @@ public class Roteiro {
     public Roteiro(Bairro bairroOrigem, Bairro bairroDestino, Collection<Bairro> todosBairros) throws IllegalArgumentException {
         if (!todosBairros.contains(bairroOrigem) ||
          !todosBairros.contains(bairroDestino) ||
-          bairroOrigem == null || bairroDestino == null) {
+          bairroOrigem == null || bairroDestino == null || todosBairros.isEmpty()) {
             throw new IllegalArgumentException("Impossible to calculate route with a district outside off the map.");
         }
         this.bairroOrigem = bairroOrigem;
         this.bairroDestino = bairroDestino;
+        this.bairrosPercorridos = todosBairros;
         Ponto pOrig = bairroOrigem.getArea().pontoCentral();
         Ponto pDest = bairroOrigem.getArea().pontoCentral();
         rota = new Reta(pOrig, pDest);
