@@ -7,6 +7,17 @@ public class CalculoCustoViagemBasico implements CalculoCustoViagem {
     private Roteiro roteiro;
     private Passageiro passageiro;
 
+    public CalculoCustoViagemBasico(Roteiro roteiro, Passageiro passageiro) throws NullPointerException {
+        if (roteiro == null) {
+            throw new NullPointerException("Rout cannot be null");
+        }
+        if (passageiro == null) {
+            throw new NullPointerException("Passenger cannot be null");
+        }
+        this.roteiro = roteiro;
+        this.passageiro = passageiro;
+    }
+
     @Override
     public void defineRoteiro(Roteiro roteiro) {
         this.roteiro = roteiro;
