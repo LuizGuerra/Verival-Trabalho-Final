@@ -38,7 +38,8 @@ public class CalculoCustoViagemBasico implements CalculoCustoViagem {
 
     @Override
     public double calculoCustoBasico() {
-        return roteiro.bairrosPercoridos().stream().mapToDouble(b -> b.getCustoTransporte()).sum();
+        return roteiro.bairrosPercoridos().stream()
+            .mapToDouble(b -> b.getCustoTransporte()).sum();
     }
 
     @Override
