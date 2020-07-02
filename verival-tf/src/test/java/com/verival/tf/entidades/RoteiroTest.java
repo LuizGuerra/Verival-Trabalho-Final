@@ -121,7 +121,7 @@ public class RoteiroTest {
         Collection<Bairro> expected = new ArrayList<>(
             Arrays.asList(districts.get(0), districts.get(1))
         );
-        Collection<Bairro> actual = roteiro.bairrosPercoridos();
+        Collection<Bairro> actual = roteiro.bairrosPercorridos();
         assertTrue(expected.equals(actual));
     }
 
@@ -136,7 +136,7 @@ public class RoteiroTest {
                 districts.get(5)
                 )
         );
-        Collection<Bairro> actual = roteiro.bairrosPercoridos();
+        Collection<Bairro> actual = roteiro.bairrosPercorridos();
         assertTrue(expected.equals(actual));
     }
 
@@ -146,7 +146,7 @@ public class RoteiroTest {
         Collection<Bairro> expected = new ArrayList<>(
             Arrays.asList(districts.get(0), districts.get(2))
         );
-        Collection<Bairro> actual = roteiro.bairrosPercoridos();
+        Collection<Bairro> actual = roteiro.bairrosPercorridos();
         assertTrue(expected.equals(actual));
     }   
 

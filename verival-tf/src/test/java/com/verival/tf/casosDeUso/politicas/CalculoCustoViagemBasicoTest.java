@@ -34,7 +34,7 @@ public class CalculoCustoViagemBasicoTest {
         when(b1.getCustoTransporte()).thenReturn(10.0);
         when(b2.getCustoTransporte()).thenReturn(20.0);
 
-        when(rout.bairrosPercoridos()).thenReturn(new ArrayList<Bairro>(
+        when(rout.bairrosPercorridos()).thenReturn(new ArrayList<Bairro>(
             Arrays.asList(b1, b2)
         ));
 
@@ -65,7 +65,7 @@ public class CalculoCustoViagemBasicoTest {
         when(b1.getCustoTransporte()).thenReturn(10.0);
         when(b2.getCustoTransporte()).thenReturn(20.0);
 
-        when(rout.bairrosPercoridos()).thenReturn(new ArrayList<Bairro>(
+        when(rout.bairrosPercorridos()).thenReturn(new ArrayList<Bairro>(
             Arrays.asList(b1, b2)
         ));
 
