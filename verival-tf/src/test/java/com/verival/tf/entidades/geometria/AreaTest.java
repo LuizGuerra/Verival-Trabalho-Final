@@ -262,11 +262,7 @@ public class AreaTest {
     SituacaoReta expected = SituacaoReta.TODA_FORA;
     SituacaoReta actual = area.classifica(reta);
 
-<<<<<<< HEAD:verival-tf/src/test/java/com/verival/tf/entidades/geometria/AreaTest.java
-    Assertions.assertNotEquals(expected, actual);
-=======
     Assertions.assertEquals(expected, actual);
->>>>>>> 3fa39b6f19cb06815332af016cd4efe30a4d50b9:verival-tf/src/test/java/com/verival/tf/AreaTest.java
   }
 
   @Test
@@ -308,19 +304,12 @@ public class AreaTest {
     Assertions.assertEquals(expected, actual);
   }
 
-<<<<<<< HEAD:verival-tf/src/test/java/com/verival/tf/entidades/geometria/AreaTest.java
-=======
   @Test
->>>>>>> 3fa39b6f19cb06815332af016cd4efe30a4d50b9:verival-tf/src/test/java/com/verival/tf/AreaTest.java
   public void differentQuadranstWithLineOutOfAreaTest() {
     pSupEsq = new Ponto(-2, 2);
     pInfDir = new Ponto(2, -2);
     area = new Area(pSupEsq, pInfDir);
-<<<<<<< HEAD:verival-tf/src/test/java/com/verival/tf/entidades/geometria/AreaTest.java
-    Reta reta = new Reta((new Ponto(-5, 0)), (new Ponto(-4, 1)));
-=======
     Reta reta = new Reta((new Ponto(0,10)), (new Ponto(10,0)));
->>>>>>> 3fa39b6f19cb06815332af016cd4efe30a4d50b9:verival-tf/src/test/java/com/verival/tf/AreaTest.java
 
     SituacaoReta expected = SituacaoReta.TODA_FORA;
     SituacaoReta actual = area.classifica(reta);
