@@ -20,7 +20,6 @@ public class CalculoCustoViagemVeraoTest {
     private Roteiro rout;
     private Passageiro passenger;
     
-    
     @BeforeEach
     public void setup() {
         rout = mock(Roteiro.class);
