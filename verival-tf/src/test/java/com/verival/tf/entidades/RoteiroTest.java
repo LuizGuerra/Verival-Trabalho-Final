@@ -157,13 +157,16 @@ public class RoteiroTest {
         roteiro = new Roteiro(districts.get(0), districts.get(1), districts);
 
         final Reta expected = new Reta((new Ponto(1, 5)), (new Ponto(4, 5)));
-        // final Reta expected01 = new Reta((new Ponto(1, 5)), (new Ponto(4, 5)));
-        // final Reta expected02 = new Reta((new Ponto(4, 5)), (new Ponto(1, 5)));
         final Reta actual = roteiro.getRota();
-        final Boolean equalLines = pointsAreEqual(expected.getP1(), actual.getP1()) 
-                                && pointsAreEqual(expected.getP2(), actual.getP2());
+        boolean areEqual = (
+            pointsAreEqual(expected.getP1(), actual.getP1()) &&
+             pointsAreEqual(expected.getP2(), actual.getP2()))
+            || 
+            (pointsAreEqual(expected.getP1(), actual.getP2()) &&
+             pointsAreEqual(expected.getP2(), actual.getP1())
+            );
 
-        assertTrue(equalLines);
+        assertTrue(areEqual);
     }
 
     @Test
@@ -172,10 +175,15 @@ public class RoteiroTest {
         
         final Reta expected = new Reta((new Ponto(1, 5)), (new Ponto(4,1)));
         final Reta actual = roteiro.getRota();
-        final Boolean equalLines = pointsAreEqual(expected.getP1(), actual.getP1()) 
-                                && pointsAreEqual(expected.getP2(), actual.getP2());
+        boolean areEqual = (
+            pointsAreEqual(expected.getP1(), actual.getP1()) &&
+             pointsAreEqual(expected.getP2(), actual.getP2()))
+            || 
+            (pointsAreEqual(expected.getP1(), actual.getP2()) &&
+             pointsAreEqual(expected.getP2(), actual.getP1())
+            );
 
-        assertTrue(equalLines);
+        assertTrue(areEqual);
     }
 
     @Test
@@ -184,20 +192,15 @@ public class RoteiroTest {
         
         final Reta expected = new Reta((new Ponto(1, 5)), (new Ponto(1,2)));
         final Reta actual = roteiro.getRota();
-        final Boolean equalLines = pointsAreEqual(expected.getP1(), actual.getP1()) 
-                                && pointsAreEqual(expected.getP2(), actual.getP2());
+        boolean areEqual = (
+            pointsAreEqual(expected.getP1(), actual.getP1()) &&
+             pointsAreEqual(expected.getP2(), actual.getP2()))
+            || 
+            (pointsAreEqual(expected.getP1(), actual.getP2()) &&
+             pointsAreEqual(expected.getP2(), actual.getP1())
+            );
 
-        assertTrue(equalLines);
-    }
-
-    @Test
-    public void fooRoutIntegrationTest() {
-        roteiro = new Roteiro(districts.get(0), districts.get(1), districts);
-        Collection<Bairro> expected = new ArrayList<>(
-            Arrays.asList(districts.get(0), districts.get(1))
-        );
-        Collection<Bairro> actual = roteiro.bairrosPercoridos();
-        assertTrue(expected.equals(actual));
+        assertTrue(areEqual);
     }
 
     private Boolean pointsAreEqual(Ponto p1, Ponto p2) {
