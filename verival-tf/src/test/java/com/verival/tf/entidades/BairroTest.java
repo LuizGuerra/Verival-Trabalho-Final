@@ -1,4 +1,4 @@
-package com.verival.tf;
+package com.verival.tf.entidades;
 
 import com.verival.tf.entidades.Bairro;
 import com.verival.tf.entidades.geometria.Area;

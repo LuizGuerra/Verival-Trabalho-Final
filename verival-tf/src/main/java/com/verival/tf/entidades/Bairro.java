@@ -46,6 +46,16 @@ public class Bairro {
     }
 
     @Override
+    public boolean equals(Object outro) {
+        if (outro instanceof Bairro) {
+            Bairro outroBairro = (Bairro) outro;
+            return this.getNome().equals(outroBairro.getNome());
+        } else {
+            return false;
+        }
+    }
+
+    @Override
     public String toString() {
         return "Bairro [area=" + area + ", nome=" + nome + "]";
     }

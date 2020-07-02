@@ -1,6 +1,8 @@
 package com.verival.tf.entidades;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import com.verival.tf.entidades.geometria.Ponto;
 import com.verival.tf.entidades.geometria.Reta;
@@ -24,8 +26,10 @@ public class Roteiro {
     public Roteiro(Bairro bairroOrigem, Bairro bairroDestino, Collection<Bairro> todosBairros) {
         this.bairroOrigem = bairroOrigem;
         this.bairroDestino = bairroDestino;
+        bairrosPercorridos = new ArrayList<>();
+
         Ponto pOrig = bairroOrigem.getArea().pontoCentral();
-        Ponto pDest = bairroOrigem.getArea().pontoCentral();
+        Ponto pDest = bairroDestino.getArea().pontoCentral();
         rota = new Reta(pOrig, pDest);
         determinaBairrosPercorridos(rota, todosBairros);
     }
@@ -42,7 +46,7 @@ public class Roteiro {
         return bairroDestino;
     }
 
-    public Collection<Bairro> bairrosPercoridos() {
+    public Collection<Bairro> bairrosPercorridos() {
         return bairrosPercorridos;
     }
 
