@@ -23,7 +23,12 @@ public class Roteiro {
         }
     }
 
-    public Roteiro(Bairro bairroOrigem, Bairro bairroDestino, Collection<Bairro> todosBairros) {
+    public Roteiro(Bairro bairroOrigem, Bairro bairroDestino, Collection<Bairro> todosBairros) throws IllegalArgumentException {
+        if (!todosBairros.contains(bairroOrigem) ||
+         !todosBairros.contains(bairroDestino) ||
+          bairroOrigem == null || bairroDestino == null) {
+            throw new IllegalArgumentException("Impossible to calculate route with a district outside off the map.");
+        }
         this.bairroOrigem = bairroOrigem;
         this.bairroDestino = bairroDestino;
         bairrosPercorridos = new ArrayList<>();
