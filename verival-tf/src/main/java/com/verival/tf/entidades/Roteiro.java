@@ -46,7 +46,7 @@ public class Roteiro {
         this.bairrosPercorridos = todosBairros;
 
         Ponto pOrig = bairroOrigem.getArea().pontoCentral();
-        Ponto pDest = bairroOrigem.getArea().pontoCentral();
+        Ponto pDest = bairroDestino.getArea().pontoCentral();
         rota = new Reta(pOrig, pDest);
 
         determinaBairrosPercorridos(rota, todosBairros);
