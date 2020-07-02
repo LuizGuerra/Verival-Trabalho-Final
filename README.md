@@ -4,22 +4,22 @@
 #Delegação de tarefas
 
 > <b>Marlon</b>
-Area
-Bairro
-Viagem
-Passageiro
+Area, 
+Bairro, 
+Viagem, 
+Passageiro, 
 ServiçosPassageiro
 
 > <b>Luiz</b>
-Area
-Roteiro 
-CustoViagem
+Area, 
+Roteiro, 
+CustoViagem, 
 CalculoCustoViagemBasico
 
 > <b>Leonardo</b>
-RepositorioBairrosImplMem
-RepositorioPassageirosImplMem
-CalculoCustoViagemVerao
+RepositorioBairrosImplMem, 
+RepositorioPassageirosImplMem, 
+CalculoCustoViagemVerao, 
 CalculoCustoViagemRelampago
 
 
