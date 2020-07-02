@@ -26,11 +26,11 @@ public class ServicosPassageiro {
         this.custoViagem = new CustoViagem(ccv);
     }
 
-    public List<Object> getListaBairros() {
+    public List<String> getListaBairros() {
         return repBairros.recuperaListaBairros().stream().map(b -> b.getNome()).collect(Collectors.toList());
     }
 
-    public List<String> getPassageirosCadastrados() {
+    public List<Object> getPassageirosCadastrados() {
         return repPassageiros.listaPassageiros().stream().map(p -> p.getNome()).collect(Collectors.toList());
     }
 

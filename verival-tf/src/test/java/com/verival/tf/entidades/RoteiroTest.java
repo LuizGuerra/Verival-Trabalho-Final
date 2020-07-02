@@ -83,7 +83,7 @@ public class RoteiroTest {
 
         String expectedMessage = "City map cannot be empty on initializer";
         String actualMessage = exception.getMessage();
-                            
+
         assertTrue(actualMessage.contains(expectedMessage));
     }
 
@@ -97,7 +97,7 @@ public class RoteiroTest {
 
         String expectedMessage = "City map doesn't contain origin district";
         String actualMessage = exception.getMessage();
-                            
+
         assertTrue(actualMessage.contains(expectedMessage));
     }
 
@@ -206,5 +206,5 @@ public class RoteiroTest {
     private Boolean pointsAreEqual(Ponto p1, Ponto p2) {
         return p1.getX() == p2.getX() && p1.getY() == p2.getY();
     }
-    
+
 }

@@ -21,7 +21,7 @@ public class CalculoCustoViagemRelampago extends CalculoCustoViagemBasico {
 
     @Override
     public double descontoPromocaoSazonal() {
-        int qtdadeBairros = getRoteiro().bairrosPercoridos().size();
+        int qtdadeBairros = getRoteiro().bairrosPercorridos().size();
         double cb = calculoCustoBasico();
         if (qtdadeBairros > 3) {
             return cb * 0.05;

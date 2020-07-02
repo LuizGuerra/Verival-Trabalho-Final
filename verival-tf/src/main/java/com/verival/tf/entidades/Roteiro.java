@@ -1,6 +1,8 @@
 package com.verival.tf.entidades;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import com.verival.tf.entidades.geometria.Ponto;
 import com.verival.tf.entidades.geometria.Reta;
@@ -64,7 +66,7 @@ public class Roteiro {
         return bairroDestino;
     }
 
-    public Collection<Bairro> bairrosPercoridos() {
+    public Collection<Bairro> bairrosPercorridos() {
         return bairrosPercorridos;
     }
 

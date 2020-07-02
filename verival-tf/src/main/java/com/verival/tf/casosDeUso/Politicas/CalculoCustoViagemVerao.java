@@ -20,7 +20,7 @@ public class CalculoCustoViagemVerao extends CalculoCustoViagemBasico {
 
     @Override
     public double descontoPromocaoSazonal() {
-        int qtdadeBairros = getRoteiro().bairrosPercoridos().size();
+        int qtdadeBairros = getRoteiro().bairrosPercorridos().size();
         double cb = calculoCustoBasico();
         if (qtdadeBairros > 2) {
             return cb * 0.1;
