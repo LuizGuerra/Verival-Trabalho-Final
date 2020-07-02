@@ -1,6 +1,14 @@
 package com.verival.tf.casosDeUso.Politicas;
 
+import com.verival.tf.entidades.Passageiro;
+import com.verival.tf.entidades.Roteiro;
+
 public class CalculoCustoViagemRelampago extends CalculoCustoViagemBasico {
+    public CalculoCustoViagemRelampago(Roteiro roteiro, Passageiro passageiro) throws NullPointerException {
+        super(roteiro, passageiro);
+        
+    }
+
     @Override
     public double descontoPontuacao() {
         double custobasico = calculoCustoBasico();
