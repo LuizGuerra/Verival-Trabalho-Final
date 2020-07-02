@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import com.verival.tf.casosDeUso.Politicas.CalculoCustoViagem;
 import com.verival.tf.casosDeUso.Politicas.CalculoCustoViagemBasico;
 import com.verival.tf.casosDeUso.Politicas.CustoViagem;
 import com.verival.tf.entidades.Passageiro;
@@ -62,14 +63,13 @@ public class CustoViagemTest {
     }
 
     @Test
-    public void testIntegration() {
+    public void calculateTripCostTest() {
         Roteiro rout = mock(Roteiro.class);
         Passageiro passenger = mock(Passageiro.class);
-        when(custoViagem.custoViagem(rout, passenger)).thenReturn(10.0);
+        when(calculoCustoViagemBasico.custoViagem()).thenReturn(10.0);
 
         double expected = 10;
         double actual = custoViagem.custoViagem(rout, passenger);
-        
 
         assertEquals(expected, actual);
     }
