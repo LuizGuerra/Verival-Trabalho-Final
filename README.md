@@ -3,20 +3,20 @@
 
 #Delegação de tarefas
 
-> <b>Marlon</b>
+> <b>Marlon</b>:
 Area, 
 Bairro, 
 Viagem, 
 Passageiro, 
 ServiçosPassageiro
 
-> <b>Luiz</b>
+> <b>Luiz</b>:
 Area, 
 Roteiro, 
 CustoViagem, 
 CalculoCustoViagemBasico
 
-> <b>Leonardo</b>
+> <b>Leonardo</b>:
 RepositorioBairrosImplMem, 
 RepositorioPassageirosImplMem, 
 CalculoCustoViagemVerao, 
