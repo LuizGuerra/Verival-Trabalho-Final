@@ -10,22 +10,11 @@ public class CalculoCustoViagemVerao extends CalculoCustoViagemBasico {
 
     @Override
     public double descontoPontuacao() {
-        double custobasico = calculoCustoBasico();
-        if (getPassageiro().getPontuacaoMedia() > 9.0) {
-            return custobasico * 0.9;
-        } else {
-            return 0.0;
-        }
+        return getPassageiro().getPontuacaoMedia() > 9 ? calculoCustoBasico() * 0.09 : 0;
     }
 
     @Override
     public double descontoPromocaoSazonal() {
-        int qtdadeBairros = getRoteiro().bairrosPercorridos().size();
-        double cb = calculoCustoBasico();
-        if (qtdadeBairros > 2) {
-            return cb * 0.1;
-        } else {
-            return 0.0;
-        }
+        return getRoteiro().bairrosPercorridos().size() > 2 ? calculoCustoBasico() * 0.1 : 0;
     }
 }
